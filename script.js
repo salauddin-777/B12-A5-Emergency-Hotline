@@ -66,19 +66,39 @@ for (let btn of callBtn) {
             document.getElementById('clear-btn').addEventListener('click', function(){
                div.innerText = '';
             })
-
-            // Copy Button work
-
-            const copyBtn = document.querySelectorAll('btn-copy');
-            for(const cbtn of copyBtn){
-                cbtn.addEventListener('click', function(){
-                    alert(number, )
-                })
-            }
-
+   
+            
         }
+       
+
+
+
         
         
         
+    });
+    
+}
+ // Copy Button work
+
+
+       const copyBtns = document.querySelectorAll('.copy-btn');
+const copyCounterEl = document.getElementById('copy-counter');
+
+for (let btn of copyBtns) {
+    btn.addEventListener('click', function () {
+        const parent = btn.closest('.service-card');
+        const number = parent.querySelector('.number').innerText;
+
+        navigator.clipboard.writeText(number).then(() => {
+            // increase counter
+            let count = parseInt(copyCounterEl.innerText);
+            count++;
+            copyCounterEl.innerText = count;
+
+            alert('✅ Number copied: ' + number);
+        }).catch(err => {
+            console.error('❌ Failed to copy: ', err);
+        });
     });
 }
