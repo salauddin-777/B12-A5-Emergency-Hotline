@@ -91,7 +91,7 @@ for (let btn of copyBtns) {
         const number = parent.querySelector('.number').innerText;
 
         navigator.clipboard.writeText(number).then(() => {
-            // increase counter
+          
             let count = parseInt(copyCounterEl.innerText);
             count++;
             copyCounterEl.innerText = count;
